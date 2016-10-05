@@ -9,7 +9,13 @@ public class FTCTeleOP extends FtcOpMode {
 
     @Override
     public void run() {
-        console.put("Hello", "Hello World");
+        //console.put("Hello", "Hello World");
+        console.put("F", forward + "");
+        console.put("D", dir + "");
+
+        //MOVE
+        //move(forward, dir);
+        lazyJoystickMove();
     }
 
 }
