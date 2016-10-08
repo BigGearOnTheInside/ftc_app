@@ -56,34 +56,41 @@ public abstract class FtcOpMode extends LinearOpMode {
     }
 
     public void move(float forward, float dir) {
-        robot.leftMotor.setPower(forward);
-        robot.rightMotor.setPower(forward);
+        robot.leftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        robot.rightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        if(dir == 0F) {
+            robot.leftMotor.setPower(forward);
+            robot.rightMotor.setPower(forward);
+        } else {
+            robot.leftMotor.setPower(forward * dir);
+            robot.rightMotor.setPower(forward * -dir);
+        }
     }
 
-    public void lazyJoystickMove() {
-        if(gamepad1.left_stick_y < 0) { //left stick pushed forward
-            robot.leftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-            robot.leftMotor.setPower(1F);
-        }
-        else if(gamepad1.left_stick_y > 0) { //left stick pushed back
-            robot.leftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-            robot.leftMotor.setPower(1.0);
-        }
-        else
-        {/*is zero*/}
-
-        if(gamepad1.right_stick_y < 0) { //right stick pushed forward
-            robot.rightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-            robot.rightMotor.setPower(1F);
-        }
-        else if(gamepad1.right_stick_y > 0) { //right stick pushed back
-            robot.rightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-            robot.rightMotor.setPower(1F);
-        }
-        else
-        {/*is zero*/}
-
-    }
+//    public void lazyJoystickMove() {
+//        if(gamepad1.left_stick_y < 0) { //left stick pushed forward
+//            robot.leftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+//            robot.leftMotor.setPower(1F);
+//        }
+//        else if(gamepad1.left_stick_y > 0) { //left stick pushed back
+//            robot.leftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+//            robot.leftMotor.setPower(1.0);
+//        }
+//        else
+//        {/*is zero*/}
+//
+//        if(gamepad1.right_stick_y < 0) { //right stick pushed forward
+//            robot.rightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+//            robot.rightMotor.setPower(1F);
+//        }
+//        else if(gamepad1.right_stick_y > 0) { //right stick pushed back
+//            robot.rightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+//            robot.rightMotor.setPower(1F);
+//        }
+//        else
+//        {/*is zero*/}
+//
+//    }
 
     //REGISTER
     private void register() {

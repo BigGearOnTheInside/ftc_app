@@ -18,8 +18,7 @@ public class FTCTeleOP extends FtcOpMode {
         console.put("D", dir + "");
 
         //MOVE
-        //move(forward, dir);
-        lazyJoystickMove();
+        move(forward, dir);
     }
 
 }
