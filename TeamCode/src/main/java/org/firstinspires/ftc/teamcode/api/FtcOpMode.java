@@ -12,7 +12,6 @@ import java.util.HashMap;
  * Created by 15670 on 9/27/2016.
  */
 
-@TeleOp(name = "TeleOP", group = "TeleOP")
 public abstract class FtcOpMode extends LinearOpMode {
 
     @Override
